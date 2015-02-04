@@ -145,7 +145,7 @@ def build_xpi(template_root_dir, manifest, xpi_path,
     # Create zipfile in alphabetical order, with each directory before its
     # files
     for name in sorted(dirs_to_create.union(set(files_to_copy))):
-        if name in dirs_to_create:
+        if name and name in dirs_to_create:
             mkzipdir(zf, name+"/")
         if name in files_to_copy:
             zf.write(files_to_copy[name], name)
